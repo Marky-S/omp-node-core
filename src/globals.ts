@@ -2291,6 +2291,27 @@ interface IOMP {
   ): void;
 
   /**
+   * Adds a new event listener to playerWeaponShot
+   *
+   * @name omp.addListener
+   * @badret Returning false will stop other listeners from being executed and break the call chain.
+   * @param {string} [eventName=playerWeaponShot] - Event name
+   * @param {function} callback - Event callback
+   */
+  addListener(
+      eventName: "playerWeaponShot",
+      callback: (
+          player: Player,
+          weapon: number,
+          hitType: number,
+          hitId: number,
+          x: number,
+          y: number,
+          z: number
+      ) => any
+  ): void;
+
+  /**
    * Adds a new event listener to playerShotMissed
    *
    * @name omp.addListener
@@ -3595,6 +3616,26 @@ interface IOMP {
   ): void;
 
   /**
+   * Removes a specific listener for playerWeaponShot
+   *
+   * @name omp.removeListener
+   * @param {string} [eventName=playerWeaponShot] - Event name
+   * @param {function} callback - Event callback
+   */
+  removeListener(
+      eventName: "playerWeaponShot",
+      callback: (
+          player: Player,
+          weapon: number,
+          hitType: number,
+          hitId: number,
+          x: number,
+          y: number,
+          z: number
+      ) => any
+  ): void;
+
+  /**
    * Removes a specific listener for playerShotMissed
    *
    * @name omp.removeListener
@@ -4503,6 +4544,14 @@ interface IOMP {
    * @param {string} [eventName=playerText] - Event name
    */
   removeAllListeners(eventName: "playerText"): void;
+
+  /**
+   * Removes all listeners for playerWeaponShot
+   *
+   * @name omp.removeAllListeners
+   * @param {string} [eventName=playerWeaponShot] - Event name
+   */
+  removeAllListeners(eventName: "playerWeaponShot"): void;
 
   /**
    * Removes all listeners for playerShotMissed

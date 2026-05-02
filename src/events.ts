@@ -1090,6 +1090,31 @@ export const initializeEvents = () => {
     return processEventListeners("playerText", badRet, player_, text);
   });
 
+  // Internal playerWeaponShot event handler
+  eventEmitter_raw.on(
+      "playerWeaponShot",
+      async (badRet, player, weapon, hitType, hitId, x, y, z) => {
+        const player_ = omp.players.get(player);
+        if (player_ === undefined)
+          throw new Error(
+              "Unable to cast player to Player for playerWeaponShot. Value: " +
+              player
+          );
+
+        return processEventListeners(
+            "playerWeaponShot",
+            badRet,
+            player_,
+            weapon,
+            hitType,
+            hitId,
+            x,
+            y,
+            z
+        );
+      }
+  );
+
   // Internal playerShotMissed event handler
   eventEmitter_raw.on(
     "playerShotMissed",
