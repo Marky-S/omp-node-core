@@ -1,6 +1,6 @@
 {
   "name": "@arizona-node/core",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "open.mp core nodejs package for Arizona. contains constants, type definitions, and initializers",
   "scripts": {
     "build": "rollup -c rollup.config.mjs --environment TARGET:@arizona-node/core"
