@@ -1,9 +1,9 @@
 {
-  "name": "@omp-node/core",
-  "version": "0.4.3",
-  "description": "open.mp core nodejs package. contains constants, type definitions, and initializers",
+  "name": "@arizona-node/core",
+  "version": "0.1.0",
+  "description": "open.mp core nodejs package for Arizona. contains constants, type definitions, and initializers",
   "scripts": {
-    "build": "rollup -c rollup.config.mjs --environment TARGET:@omp-node/core"
+    "build": "rollup -c rollup.config.mjs --environment TARGET:@arizona-node/core"
   },
   "keywords": [
     "omp",
@@ -42,11 +42,11 @@
     "rollup-plugin-typescript-paths": "^1.5.0",
     "typescript": "^5.4.5"
   },
-  "repository": "https://github.com/omp-node/core",
-  "homepage": "https://github.com/omp-node/core",
-  "author": "Amyr (iAmir) Ahmady",
+  "repository": "https://github.com/Marky-S/omp-node-core",
+  "homepage": "https://github.com/Marky-S/omp-node-core",
+  "author": "Amyr (iAmir) Ahmady & Mark (marky) Karpov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/omp-node/core/issues"
+    "url": "https://github.com/Marky-S/omp-node-core/issues"
   }
 }
