@@ -985,7 +985,7 @@ interface IOMP {
     eventName: "playerShotVehicle",
     callback: (
       player: Player,
-      target: Player,
+      target: Vehicle,
       weapon: number,
       x: number,
       y: number,
@@ -1005,7 +1005,7 @@ interface IOMP {
     eventName: "playerShotObject",
     callback: (
       player: Player,
-      target: Player,
+      target: ObjectMp,
       weapon: number,
       x: number,
       y: number,
@@ -1025,7 +1025,7 @@ interface IOMP {
     eventName: "playerShotPlayerObject",
     callback: (
       player: Player,
-      target: Player,
+      target: PlayerObject,
       weapon: number,
       x: number,
       y: number,
