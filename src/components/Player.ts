@@ -1,3 +1,4 @@
+import type { WorldSnapshotRow } from "../constants";
 import { Actor, Menu, ObjectMp, PlayerObject, Vehicle, omp } from "./index";
 import { PTR, internal_omp } from "../globals";
 
@@ -3216,6 +3217,15 @@ export default class Player {
     }
 
     const result = internal_omp.Player.GetTrainSpeed(this.ptr);
+    return result.ret;
+  }
+
+  /**
+   * @method getPlayersWorldSnapshot
+   * @returns {WorldSnapshotRow[]}
+   */
+  static getPlayersWorldSnapshot(): WorldSnapshotRow[] {
+    const result = internal_omp.Player.GetPlayersWorldSnapshot();
     return result.ret;
   }
 }

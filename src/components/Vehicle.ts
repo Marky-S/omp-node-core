@@ -1,3 +1,4 @@
+import type { WorldSnapshotRow } from "../constants";
 import { Player } from "./index";
 import { PTR, internal_omp, omp } from "../globals";
 
@@ -543,6 +544,52 @@ export default class Vehicle {
     }
 
     const result = internal_omp.Vehicle.ChangePaintjob(this.ptr, paintjobid);
+    return result.ret;
+  }
+
+  /**
+   * Apply a vinyl / material override. Texture is loaded from the client TXD "vinils".
+   * @method setMaterialTuning
+   * @param {string} materialName Original DFF texture name to replace, or "wad" for body paint slots
+   * @param {number} color Packed RGBA 0xRRGGBBAA
+   * @param {string} [textureName] Texture name inside TXD "vinils"; empty string applies color only
+   * @returns {boolean}
+   * @throws Will throw an error if the vehicle is invalid
+   */
+  setMaterialTuning(
+    materialName: string,
+    color: number,
+    textureName: string = ""
+  ): boolean {
+    if (!this.ptr) {
+      throw new Error("Vehicle instance is not valid");
+    }
+
+    const result = internal_omp.Vehicle.SetMaterialTuning(
+      this.ptr,
+      materialName,
+      color >>> 0,
+      textureName
+    );
+    return result.ret;
+  }
+
+  /**
+   * Reset a vinyl / material override. Empty materialName resets all materials.
+   * @method resetMaterialTuning
+   * @param {string} [materialName]
+   * @returns {boolean}
+   * @throws Will throw an error if the vehicle is invalid
+   */
+  resetMaterialTuning(materialName: string = ""): boolean {
+    if (!this.ptr) {
+      throw new Error("Vehicle instance is not valid");
+    }
+
+    const result = internal_omp.Vehicle.ResetMaterialTuning(
+      this.ptr,
+      materialName
+    );
     return result.ret;
   }
 
@@ -1095,6 +1142,15 @@ export default class Vehicle {
    */
   static getModelsUsed(): number {
     const result = internal_omp.Vehicle.GetModelsUsed();
+    return result.ret;
+  }
+
+  /**
+   * @method getVehiclesWorldSnapshot
+   * @returns {WorldSnapshotRow[]}
+   */
+  static getVehiclesWorldSnapshot(): WorldSnapshotRow[] {
+    const result = internal_omp.Vehicle.GetVehiclesWorldSnapshot();
     return result.ret;
   }
 

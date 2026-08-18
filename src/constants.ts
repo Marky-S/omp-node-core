@@ -67,3 +67,6 @@ export const NPC_MOVE_SPEED_AUTO = -1.0;
 export const NPC_MOVE_SPEED_WALK = 0.1552086;
 export const NPC_MOVE_SPEED_JOG = 0.56444;
 export const NPC_MOVE_SPEED_SPRINT = 0.926784;
+
+/** [id, posX, posY, posZ, virtualWorld, heading] */
+export type WorldSnapshotRow = [number, number, number, number, number, number];
